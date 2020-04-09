@@ -20,7 +20,7 @@ public class Gestione_File {
 	
 	
 	public static long getLineCount() throws IOException {
-		File file = new File("C:\\Users\\jokmo\\eclipse-workspace\\Embedded_DB\\eventi.txt");
+		File file = new File("C:\\Users\\jokmo\\git\\EM_DB_Reposity\\Emotional_Map_V3\\eventi.txt");
 	    try (Stream<String> lines = Files.lines(file.toPath())) {
 	    	
 	        return lines.count();
@@ -30,7 +30,7 @@ public class Gestione_File {
 	
 	public List read_file_line(int i) throws IOException {
 		//i deve essere = 0 per prima run
-		String file_line = Files.readAllLines(Paths.get("C:\\Users\\jokmo\\eclipse-workspace\\Embedded_DB\\eventi.txt")).get(i);
+		String file_line = Files.readAllLines(Paths.get("C:\\Users\\jokmo\\git\\EM_DB_Reposity\\Emotional_Map_V3\\eventi.txt")).get(i);
 		Scanner rd_file = new Scanner(file_line).useDelimiter(" |\n");
 		List<String> file_element = new ArrayList<String>();
 		while(rd_file.hasNext()) {
