@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Create_DB {
 	
 	public static final String driver = "org.apache.derby.jdbc.EmbeddedDriver";
-	public static final String jbdc_url = "jdbc:derby:try2;create=true";
+	public static final String jbdc_url = "jdbc:derby:DB_EM;create=true";
 	static Connection conn ;
 	
 	static Gestione_File gf = new Gestione_File();
