@@ -1,9 +1,13 @@
 package Project;
 
+import java.awt.Frame;
 import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
 
 public class Mappa {
 	
+	static Frame message = new Frame();
 	static Mappa map = new Mappa();
 	
 	public static void main(String[] args) {
@@ -108,17 +112,16 @@ public class Mappa {
 		
 		}
 		try {
-			System.out.println("POI_"+z);
-			System.out.print("F : "+100*F/poi_n.size()+"% | ");
-			System.out.print("A : "+100*A/poi_n.size()+"% | ");
-			System.out.print("S : "+100*S/poi_n.size()+"% | ");
-			System.out.print("T : "+100*T/poi_n.size()+"% | ");
-			System.out.println("N : "+100*N/poi_n.size()+"% | ");
-			System.out.println("----------------------");
+			JOptionPane.showMessageDialog(message, "POI_"+z+"\n"+
+					"F : "+100*F/poi_n.size()+"% | "+
+					"A : "+100*A/poi_n.size()+"% | "+
+					"S : "+100*S/poi_n.size()+"% | "+
+					"T : "+100*T/poi_n.size()+"% | "+
+					"N : "+100*N/poi_n.size()+"% | ");
 		}catch(ArithmeticException e) {
 			
-			System.out.println("Non ci sono elementi");
-			System.out.println("----------------------");
+			JOptionPane.showMessageDialog(message,"Non ci sono elementi"+"\n"+
+					"----------------------");
 		}
 	}
 

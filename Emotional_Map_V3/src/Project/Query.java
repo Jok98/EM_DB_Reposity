@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 
 public class Query {
-	static Create_DB db = new Create_DB();
+	static Emotional_Map em = new Emotional_Map();
 	static Gestione_File gf = new Gestione_File();
 	static Query qy = new Query();
 	static Mappa map = new Mappa();
@@ -41,7 +41,7 @@ public class Query {
 		//
 		long count_lines = gf.getLineCount();
 		System.out.println("numero righe "+ count_lines);
-		Statement stmt = db.conn.createStatement();
+		Statement stmt = em.conn.createStatement();
 		ResultSet rslt_set = stmt.executeQuery(query);
 		ResultSetMetaData rslt_set_mtdt = rslt_set.getMetaData();
 		int clmn_lnght = rslt_set_mtdt.getColumnCount();
@@ -117,7 +117,7 @@ public class Query {
 
 			
 			  	
-		db.conn.close();
+		//em.conn.close();
     }
 
 }

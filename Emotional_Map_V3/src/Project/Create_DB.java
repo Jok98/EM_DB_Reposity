@@ -20,7 +20,7 @@ public class Create_DB {
 	
     public static void main(String[] args) throws SQLException, ParseException, IOException {
     	
-    Scanner in = new Scanner(System.in);	
+   /* Scanner in = new Scanner(System.in);	
     if ((conn==null)) {
     	conn = DriverManager.getConnection(jbdc_url);
 		System.out.println("Connessione al database aperta !");
@@ -38,12 +38,13 @@ public class Create_DB {
     //
     
     System.out.print("Inserire Query : ");
-    String query = in.nextLine();
+    String query ="" ;
  
     qy.run_query(query);
     map.show_stat(qy.poi_1, 1);
 	map.show_stat(qy.poi_2, 2);
 	map.show_stat(qy.poi_3, 3);
+	*/
     }
     
 }
