@@ -27,7 +27,6 @@ import java.awt.event.KeyEvent;
 public class Emotional_Map {
 
 	static Gestione_File gf = new Gestione_File();
-	static Create_DB db = new Create_DB();
 	static Query qy = new Query();
 	static Create_Table crt_table = new Create_Table();
 	static Mappa map = new Mappa();

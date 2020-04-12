@@ -10,6 +10,7 @@ import java.util.List;
 
 public class Create_Table {
 	static Gestione_File gf = new Gestione_File();
+	static  Emotional_Map em = new Emotional_Map();
 	public static void main(String[] args) {
 
 	}
@@ -18,7 +19,7 @@ public class Create_Table {
 		String table = "CREATE TABLE Eventi(Iscrizione VARCHAR(3), Stato VARCHAR(6), Data INT, ID VARCHAR(20) , Coor_X INT, Coor_Y INT, Emotion VARCHAR(6))";
 		Connection conn = null;
 		try {
-			conn = DriverManager.getConnection(Create_DB.jbdc_url);
+			conn = DriverManager.getConnection(em.jbdc_url);
 			conn.createStatement().execute(table);
 			System.out.println("Tabella creata");
 			conn.close();
@@ -35,7 +36,7 @@ public class Create_Table {
 	
 	
 	public void insert_value(int i) throws SQLException, ParseException, IOException {
-		Connection conn = DriverManager.getConnection(Create_DB.jbdc_url);
+		Connection conn = DriverManager.getConnection(em.jbdc_url);
 		List<String> file_element = gf.read_file_line(i);
 		System.out.println("stringa inserita: "+file_element);
 		long count_lines = gf.getLineCount();
