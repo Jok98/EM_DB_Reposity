@@ -35,11 +35,18 @@ public class Create_Table {
 
 	
 	
-	public void insert_value(int i) throws SQLException, ParseException, IOException {
+	public void insert_value(int i, boolean new_ins, List<String> file_element ) throws SQLException, ParseException, IOException {
 		Connection conn = DriverManager.getConnection(em.jbdc_url);
-		List<String> file_element = gf.read_file_line(i);
+		if (new_ins == false) {
+		
+		file_element = gf.read_file_line(i);
 		System.out.println("stringa inserita: "+file_element);
 		long count_lines = gf.getLineCount();
+		
+		}else {
+			System.out.println("stringa inserita: "+file_element);
+		}
+		
 		
 		String IN_OUT = file_element.get(0);
 		String LOG = file_element.get(1);
