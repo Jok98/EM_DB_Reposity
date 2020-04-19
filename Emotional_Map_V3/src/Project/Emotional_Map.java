@@ -226,8 +226,27 @@ public class Emotional_Map {
 		frame.getContentPane().add(btnConferma);
 		frame.getContentPane().add(btn_Par_Stat);
 		
+		//
+		JButton btn_Disiscrizione = new JButton("DISISCRIVI");
+		btn_Disiscrizione.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				String ID = "JOK" ;
+				String delete_query = "DELETE * FROM eventi WHERE ID = JOK" ;
+				try {
+					qy.delete_ID();
+				} catch (SQLException e) {
+				
+					e.printStackTrace();
+				}
+				
+				
+			}
+		});
+		btn_Disiscrizione.setBounds(325, 194, 89, 23);
+		frame.getContentPane().add(btn_Disiscrizione);
 		
-		
+		//
 		data_2 = new JTextField();
 		data_2.setBounds(325, 297, 86, 20);
 		frame.getContentPane().add(data_2);
@@ -269,8 +288,22 @@ public class Emotional_Map {
 		lblEmozione.setBounds(10, 146, 77, 14);
 		frame.getContentPane().add(lblEmozione);
 		
+		JButton btn_help = new JButton("?");
+		btn_help.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String show_all_qy = "SELECT * FROM Eventi";
+				try {
+					qy.run_query(show_all_qy);
+				} catch (SQLException | IOException e1) {
+					
+					e1.printStackTrace();
+				}
+			}
+		});
+		btn_help.setBounds(390, 10, 89, 23);
+		frame.getContentPane().add(btn_help);
 		
-		
+
 
 	}
 }

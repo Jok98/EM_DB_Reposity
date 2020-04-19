@@ -1,6 +1,9 @@
 package Project;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -27,12 +30,26 @@ public class Query {
 	
 	}
 	
+	public void delete_ID() throws SQLException {
+		String ID = "JOK" ;
+		String delete_query = "DELETE FROM Eventi WHERE ID = ?";
+		Connection conn = null;
+		conn = DriverManager.getConnection(em.jbdc_url);
+		PreparedStatement preparedStmt = conn.prepareStatement(delete_query);
+		preparedStmt.setString(1, "JOK");
+		preparedStmt.execute();
+		System.out.println("L'utente JOK è stato cancellato");
+	      conn.close();
+
+		
+	}
+	
 	//esegue un comando select * from eventi
 	public void run_query(String query) throws SQLException, IOException {
 		//conversione della stringa query in una lista
 		Scanner query_scan = new Scanner(query).useDelimiter(" ");
 		ArrayList<String> query_list = new ArrayList<String>();
-		int z = 0; 
+		 
 		while(query_scan.hasNext())  {
 		query_list.add(query_scan.next());
 		
@@ -113,6 +130,8 @@ public class Query {
 			}	
 		break;
 		
+
+			
 		}//switch end
 
 			
