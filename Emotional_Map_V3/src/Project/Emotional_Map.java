@@ -5,9 +5,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -20,10 +22,13 @@ import javax.swing.JTextField;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-public class Emotional_Map {
-
+public class Emotional_Map  {
+	static Emotional_Map emotional_map;
 	static Gestione_File gf = new Gestione_File();
 	static Query qy = new Query();
 	static Create_Table crt_table = new Create_Table();
@@ -38,7 +43,8 @@ public class Emotional_Map {
 	private JTextField data_2;
 	private JTextField txtfld_ID;
 	
-	
+	static int path;
+	static File file_path;
 	
 	/**
 	 * Launch the application.
@@ -65,7 +71,8 @@ public class Emotional_Map {
 		} else {
 			System.out.println("Connessione al database già aperta !");
 		}
-		
+		gf.get_file();
+		//file_path = emotional_map.get_file();
 	    //creo la tabella eventi
 	    crt_table.new_table();
 	    //
@@ -79,6 +86,7 @@ public class Emotional_Map {
 		
 	}
 
+	
 	/**
 	 * Create the application.
 	 */
@@ -105,7 +113,7 @@ public class Emotional_Map {
 		cb_Emotion.setModel(new DefaultComboBoxModel(new String[] {"F", "A", "S", "T", "N"}));
 		cb_Emotion.setSelectedIndex(0);
 		cb_Emotion.setFont(new Font("Tahoma", Font.BOLD, 12));
-		cb_Emotion.setBounds(97, 143, 40, 22);
+		cb_Emotion.setBounds(384, 56, 40, 19);
 		frame.getContentPane().add(cb_Emotion);
 		
 		//
@@ -113,7 +121,7 @@ public class Emotional_Map {
 		cb_X.setFont(new Font("Tahoma", Font.BOLD, 12));
 		cb_X.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6"}));
 		cb_X.setSelectedIndex(0);
-		cb_X.setBounds(51, 85, 40, 22);
+		cb_X.setBounds(166, 55, 40, 20);
 		frame.getContentPane().add(cb_X);
 		
 		//
@@ -121,14 +129,30 @@ public class Emotional_Map {
 		cb_Y.setFont(new Font("Tahoma", Font.BOLD, 12));
 		cb_Y.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6"}));
 		cb_Y.setSelectedIndex(0);
-		cb_Y.setBounds(51, 118, 40, 22);
+		cb_Y.setBounds(244, 54, 40, 22);
 		frame.getContentPane().add(cb_Y);
 		
 		//
-		JLabel lbl_ = new JLabel("Visualizza Statistiche POI");
+		JLabel lbl_ = new JLabel("Inserire dati spostamento");
 		lbl_.setBounds(10, 11, 414, 17);
 		lbl_.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_.setFont(new Font("Tahoma", Font.BOLD, 14));
+		
+		/*
+		JButton btnNewButton = new JButton("find_file");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			
+			public void mouseClicked(MouseEvent e) {
+				JFileChooser fileChooser = new JFileChooser();
+				   path = fileChooser.showOpenDialog(Emotional_Map.this);
+				   file_path = fileChooser.getSelectedFile();
+				   System.out.println(file_path);
+			}
+		});
+		btnNewButton.setBounds(181, 194, 89, 23);
+		frame.getContentPane().add(btnNewButton);
+		*/
+		
 		
 		//
 		JButton btnConferma = new JButton("CONFERMA");
@@ -158,7 +182,7 @@ public class Emotional_Map {
 				
 			}
 		});
-		btnConferma.setBounds(41, 194, 89, 23);
+		btnConferma.setBounds(10, 90, 89, 23);
 		
 		//
 		data_1 = new JTextField();
@@ -199,7 +223,7 @@ public class Emotional_Map {
 		
 		//
 		JButton btn_Full_Stat = new JButton("Statistiche totali");
-		btn_Full_Stat.setBounds(10, 333, 157, 23);
+		btn_Full_Stat.setBounds(147, 334, 157, 23);
 		btn_Full_Stat.addActionListener(new ActionListener() {
 			//gestione evento click
 			public void actionPerformed(ActionEvent arg0) {
@@ -243,7 +267,7 @@ public class Emotional_Map {
 				
 			}
 		});
-		btn_Disiscrizione.setBounds(325, 194, 89, 23);
+		btn_Disiscrizione.setBounds(10, 177, 89, 23);
 		frame.getContentPane().add(btn_Disiscrizione);
 		
 		//
@@ -275,17 +299,17 @@ public class Emotional_Map {
 		
 		JLabel lblX = new JLabel("X : ");
 		lblX.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblX.setBounds(10, 88, 30, 14);
+		lblX.setBounds(147, 58, 30, 14);
 		frame.getContentPane().add(lblX);
 		
 		JLabel lblY = new JLabel("Y : ");
 		lblY.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblY.setBounds(10, 116, 30, 14);
+		lblY.setBounds(223, 57, 30, 14);
 		frame.getContentPane().add(lblY);
 		
 		JLabel lblEmozione = new JLabel("Emozione :");
 		lblEmozione.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblEmozione.setBounds(10, 146, 77, 14);
+		lblEmozione.setBounds(302, 57, 77, 14);
 		frame.getContentPane().add(lblEmozione);
 		
 		JButton btn_help = new JButton("?");
@@ -303,7 +327,8 @@ public class Emotional_Map {
 		btn_help.setBounds(390, 10, 89, 23);
 		frame.getContentPane().add(btn_help);
 		
-
+		
+		
 
 	}
 }

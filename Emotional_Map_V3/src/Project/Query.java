@@ -44,6 +44,14 @@ public class Query {
 		
 	}
 	
+	
+	public void delete_redundancy(){
+		
+		
+		
+		
+	}
+	
 	//esegue un comando select * from eventi
 	public void run_query(String query) throws SQLException, IOException {
 		//conversione della stringa query in una lista

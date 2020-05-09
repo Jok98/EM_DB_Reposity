@@ -9,18 +9,38 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
-public class Gestione_File {
+import javax.swing.JFileChooser;
+import javax.swing.JPanel;
+
+public class Gestione_File extends JPanel{
+	
 	static Gestione_File gf = new Gestione_File();
+	static File file;
+	static String file_path;
+
+	
 	public static void main(String[] args) throws IOException {
 
-		
-	gf.read_file_line(0);
+	/*gf.get_file();
+	gf.read_file_line(0);*/
 	
+	}
+	public void get_file() {
+		
+		JFileChooser fileChooser = new JFileChooser();
+		  int path = fileChooser.showOpenDialog(Gestione_File.this);
+		  File file = fileChooser.getSelectedFile();
+		  String file_p = file.toString();
+		  file_path = file_p.replaceAll("\\s+", "");
+		  file_path = file_p.replaceAll(file.pathSeparator, "");
+		
+		  //System.out.println(file_path);
+
 	}
 	
 	
 	public static long getLineCount() throws IOException {
-		File file = new File("C:\\Users\\jokmo\\git\\EM_DB_Reposity\\Emotional_Map_V3\\eventi.txt");
+		File file = new File(file_path);
 	    try (Stream<String> lines = Files.lines(file.toPath())) {
 	    	
 	        return lines.count();
@@ -30,7 +50,7 @@ public class Gestione_File {
 	
 	public List read_file_line(int i) throws IOException {
 		//i deve essere = 0 per prima run
-		String file_line = Files.readAllLines(Paths.get("C:\\Users\\jokmo\\git\\EM_DB_Reposity\\Emotional_Map_V3\\eventi.txt")).get(i);
+		String file_line = Files.readAllLines(Paths.get(file_path)).get(i);
 		Scanner rd_file = new Scanner(file_line).useDelimiter(" |\n");
 		List<String> file_element = new ArrayList<String>();
 		while(rd_file.hasNext()) {
@@ -40,8 +60,10 @@ public class Gestione_File {
 				
 			}
 		rd_file.close();
+		//System.out.println(file_element+file_path);
 		return file_element;
 	
 	}
+
 
 }

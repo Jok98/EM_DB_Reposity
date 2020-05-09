@@ -1,5 +1,6 @@
 package Project;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -35,7 +36,7 @@ public class Create_Table {
 
 	
 	
-	public void insert_value(int i, boolean new_ins, List<String> file_element ) throws SQLException, ParseException, IOException {
+	public void insert_value(int i, boolean new_ins, List<String> file_element) throws SQLException, ParseException, IOException {
 		Connection conn = DriverManager.getConnection(em.jbdc_url);
 		if (new_ins == false) {
 		
