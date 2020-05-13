@@ -22,7 +22,7 @@ public class Mappa {
 		//caricamento array bi
 		for (int j= 0; j<Maps.length; j++){
 			
-			for(int k = 0; k< Maps.length;k++) {
+			for(int k = 0; k< Maps.length;k++) { 
 				
 			Maps[j][k] = c++;
 

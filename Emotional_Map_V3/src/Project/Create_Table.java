@@ -38,7 +38,7 @@ public class Create_Table {
 	
 	public void insert_value(int i, boolean new_ins, List<String> file_element) throws SQLException, ParseException, IOException {
 		Connection conn = DriverManager.getConnection(em.jbdc_url);
-		if (new_ins == false) {
+		if (new_ins == false) { 
 		
 		file_element = gf.read_file_line(i);
 		System.out.println("stringa inserita: "+file_element);

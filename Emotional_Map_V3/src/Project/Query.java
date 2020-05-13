@@ -30,7 +30,7 @@ public class Query {
 	
 	}
 	
-	public void delete_ID() throws SQLException {
+	public void delete_ID() throws SQLException { 
 		String ID = "JOK" ;
 		String delete_query = "DELETE FROM Eventi WHERE ID = ?";
 		Connection conn = null;

@@ -54,7 +54,7 @@ public class Gestione_File extends JPanel{
 		String file_line = Files.readAllLines(Paths.get(file_path)).get(i);
 		Scanner rd_file = new Scanner(file_line).useDelimiter(" |\n");
 		List<String> file_element = new ArrayList<String>();
-		while(rd_file.hasNext()) {
+		while(rd_file.hasNext()) { 
 			
 			file_element.add(rd_file.next());
 				

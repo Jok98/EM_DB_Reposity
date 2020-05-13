@@ -98,7 +98,7 @@ public class Emotional_Map  {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
+		frame = new JFrame(); 
 		frame.setBounds(100, 100, 394, 365);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
