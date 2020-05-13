@@ -51,7 +51,7 @@ public class Create_Table {
 		
 		String IN_OUT = file_element.get(0);
 		String LOG = file_element.get(1);
-		int Data =  Integer.parseInt(file_element.get(2));
+		int Data =  gf.convert_date(file_element.get(2));
 		String ID = file_element.get(3);
 		int Coor_X = Integer.parseInt(file_element.get(4));
 		int Coor_Y = Integer.parseInt(file_element.get(5));

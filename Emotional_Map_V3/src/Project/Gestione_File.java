@@ -23,6 +23,7 @@ public class Gestione_File extends JPanel{
 
 	/*gf.get_file();
 	gf.read_file_line(0);*/
+		//gf.convert_date("10042035");
 	
 	}
 	public void get_file() {
@@ -63,6 +64,17 @@ public class Gestione_File extends JPanel{
 		//System.out.println(file_element+file_path);
 		return file_element;
 	
+	}
+	
+	public int convert_date(String date) {
+		String anno = date.substring(4, 8);
+		String mese = date.substring(2, 4);
+		String giorno = date.substring(0, 2);
+		String tmp = anno+mese+giorno;
+		
+		int data = Integer.parseInt(tmp);
+		System.out.println(data);
+		return data;
 	}
 
 

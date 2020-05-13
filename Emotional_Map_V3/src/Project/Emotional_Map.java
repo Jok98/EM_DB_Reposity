@@ -99,12 +99,12 @@ public class Emotional_Map  {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 495, 407);
+		frame.setBounds(100, 100, 394, 365);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		//
 		JLabel lbl_Stat = new JLabel("Visualizza Statistiche POI");
-		lbl_Stat.setBounds(10, 261, 414, 17);
+		lbl_Stat.setBounds(10, 208, 414, 17);
 		lbl_Stat.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lbl_Stat.setHorizontalAlignment(SwingConstants.CENTER);
 		
@@ -113,7 +113,7 @@ public class Emotional_Map  {
 		cb_Emotion.setModel(new DefaultComboBoxModel(new String[] {"F", "A", "S", "T", "N"}));
 		cb_Emotion.setSelectedIndex(0);
 		cb_Emotion.setFont(new Font("Tahoma", Font.BOLD, 12));
-		cb_Emotion.setBounds(384, 56, 40, 19);
+		cb_Emotion.setBounds(92, 126, 40, 19);
 		frame.getContentPane().add(cb_Emotion);
 		
 		//
@@ -121,7 +121,7 @@ public class Emotional_Map  {
 		cb_X.setFont(new Font("Tahoma", Font.BOLD, 12));
 		cb_X.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6"}));
 		cb_X.setSelectedIndex(0);
-		cb_X.setBounds(166, 55, 40, 20);
+		cb_X.setBounds(29, 95, 40, 20);
 		frame.getContentPane().add(cb_X);
 		
 		//
@@ -129,7 +129,7 @@ public class Emotional_Map  {
 		cb_Y.setFont(new Font("Tahoma", Font.BOLD, 12));
 		cb_Y.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6"}));
 		cb_Y.setSelectedIndex(0);
-		cb_Y.setBounds(244, 54, 40, 22);
+		cb_Y.setBounds(100, 95, 40, 22);
 		frame.getContentPane().add(cb_Y);
 		
 		//
@@ -168,12 +168,12 @@ public class Emotional_Map  {
 				
 			}
 		});
-		btnConferma.setBounds(10, 90, 89, 23);
+		btnConferma.setBounds(10, 164, 89, 23);
 		
 		//
 		data_1 = new JTextField();
 		data_1.setHorizontalAlignment(SwingConstants.CENTER);
-		data_1.setText("AAAAMMGG");
+		data_1.setText("GGMMAAAA");
 		data_1.setToolTipText("");
 		data_1.addKeyListener(new KeyAdapter() {
 			@Override
@@ -181,18 +181,18 @@ public class Emotional_Map  {
 
 			}
 		});
-		data_1.setBounds(206, 297, 78, 20);
+		data_1.setBounds(103, 246, 78, 20);
 		frame.getContentPane().add(data_1);
 		data_1.setColumns(10);
 		
 		
 		
 		//
-		JButton btn_Par_Stat = new JButton("Statistiche parziali");
+		JButton btn_Par_Stat = new JButton("Statistiche utenti attivi");
 		btn_Par_Stat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				int d_1 =Integer.parseInt(data_1.getText());
-				int d_2 = Integer.parseInt(data_2.getText());
+				int d_1 =gf.convert_date(data_1.getText());
+				int d_2 = gf.convert_date(data_2.getText());
 				String query ="SELECT Coor_X,Coor_Y,Emotion FROM Eventi WHERE Data BETWEEN "+d_1+" AND "+d_2;
 				  
 			    try {
@@ -207,12 +207,12 @@ public class Emotional_Map  {
 		
 			}
 		});
-		btn_Par_Stat.setBounds(10, 296, 157, 23);
+		btn_Par_Stat.setBounds(10, 281, 157, 23);
 		
 		
 		//
 		JButton btn_Full_Stat = new JButton("Statistiche totali");
-		btn_Full_Stat.setBounds(147, 334, 157, 23);
+		btn_Full_Stat.setBounds(216, 281, 157, 23);
 		btn_Full_Stat.addActionListener(new ActionListener() {
 			//gestione evento click
 			public void actionPerformed(ActionEvent arg0) {
@@ -256,25 +256,25 @@ public class Emotional_Map  {
 				
 			}
 		});
-		btn_Disiscrizione.setBounds(10, 177, 89, 23);
+		btn_Disiscrizione.setBounds(158, 52, 89, 23);
 		frame.getContentPane().add(btn_Disiscrizione);
 		
 		//
 		data_2 = new JTextField();
 		data_2.setHorizontalAlignment(SwingConstants.CENTER);
-		data_2.setText("AAAAMMGG");
-		data_2.setBounds(325, 297, 86, 20);
+		data_2.setText("GGMMAAAA");
+		data_2.setBounds(222, 246, 86, 20);
 		frame.getContentPane().add(data_2);
 		data_2.setColumns(10);
 		
 		JLabel lblDa = new JLabel("Da : ");
 		lblDa.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblDa.setBounds(173, 296, 33, 25);
+		lblDa.setBounds(70, 245, 33, 25);
 		frame.getContentPane().add(lblDa);
 		
 		JLabel lblA = new JLabel("a : ");
 		lblA.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblA.setBounds(302, 300, 23, 14);
+		lblA.setBounds(199, 249, 23, 14);
 		frame.getContentPane().add(lblA);
 		
 		JLabel lblID = new JLabel("ID : ");
@@ -284,23 +284,23 @@ public class Emotional_Map  {
 		frame.getContentPane().add(lblID);
 		
 		txtfld_ID = new JTextField();
-		txtfld_ID.setBounds(51, 54, 86, 20);
+		txtfld_ID.setBounds(51, 54, 89, 20);
 		frame.getContentPane().add(txtfld_ID);
 		txtfld_ID.setColumns(10);
 		
 		JLabel lblX = new JLabel("X : ");
 		lblX.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblX.setBounds(147, 58, 30, 14);
+		lblX.setBounds(10, 98, 30, 14);
 		frame.getContentPane().add(lblX);
 		
 		JLabel lblY = new JLabel("Y : ");
 		lblY.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblY.setBounds(223, 57, 30, 14);
+		lblY.setBounds(79, 98, 30, 14);
 		frame.getContentPane().add(lblY);
 		
 		JLabel lblEmozione = new JLabel("Emozione :");
 		lblEmozione.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblEmozione.setBounds(302, 57, 77, 14);
+		lblEmozione.setBounds(10, 127, 77, 14);
 		frame.getContentPane().add(lblEmozione);
 		
 		JButton btn_help = new JButton("?");
