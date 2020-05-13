@@ -138,21 +138,6 @@ public class Emotional_Map  {
 		lbl_.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
-		/*
-		JButton btnNewButton = new JButton("find_file");
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			
-			public void mouseClicked(MouseEvent e) {
-				JFileChooser fileChooser = new JFileChooser();
-				   path = fileChooser.showOpenDialog(Emotional_Map.this);
-				   file_path = fileChooser.getSelectedFile();
-				   System.out.println(file_path);
-			}
-		});
-		btnNewButton.setBounds(181, 194, 89, 23);
-		frame.getContentPane().add(btnNewButton);
-		*/
-		
 		
 		//
 		JButton btnConferma = new JButton("CONFERMA");
@@ -162,6 +147,7 @@ public class Emotional_Map  {
 				String ID = txtfld_ID.getText();
 				String x = Integer.toString(cb_X.getSelectedIndex());
 				String y = Integer.toString(cb_Y.getSelectedIndex());
+				//inserire data atuuale
 				String data = "20200412";
 				String emotion = (String) cb_Emotion.getSelectedItem();
 				List<String> file_element = new ArrayList<String>();
@@ -186,13 +172,16 @@ public class Emotional_Map  {
 		
 		//
 		data_1 = new JTextField();
+		data_1.setHorizontalAlignment(SwingConstants.CENTER);
+		data_1.setText("AAAAMMGG");
+		data_1.setToolTipText("");
 		data_1.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
 
 			}
 		});
-		data_1.setBounds(206, 297, 86, 20);
+		data_1.setBounds(206, 297, 78, 20);
 		frame.getContentPane().add(data_1);
 		data_1.setColumns(10);
 		
@@ -272,6 +261,8 @@ public class Emotional_Map  {
 		
 		//
 		data_2 = new JTextField();
+		data_2.setHorizontalAlignment(SwingConstants.CENTER);
+		data_2.setText("AAAAMMGG");
 		data_2.setBounds(325, 297, 86, 20);
 		frame.getContentPane().add(data_2);
 		data_2.setColumns(10);

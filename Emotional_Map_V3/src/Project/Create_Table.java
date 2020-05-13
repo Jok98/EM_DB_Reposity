@@ -74,4 +74,7 @@ public class Create_Table {
 		System.out.println("Valori inseriti");
 		conn.close();
 	}
+	
+
+	
 }
